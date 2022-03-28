@@ -40,15 +40,15 @@ const  childToParentUpdater = (data) => {
 
 return (
   <div className="App">
-    <button onClick={onClickHandler}>ClickMe</button>
+    <button onClick={onClickHandler}>ClickMe</button> 
     {myVar}
     {/* <Test myProps='hello' /> */}
     <Test myProps={myVar} updater={childToParentUpdater}/>
-    <h1>
+    <h2>
       <ul>
       {movies.map(movie => <li>{movie.title}</li>)}
       </ul>
-    </h1>
+    </h2>
   </div>
   
 );
