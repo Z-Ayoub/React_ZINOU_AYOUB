@@ -44,11 +44,11 @@ return (
     {myVar}
     {/* <Test myProps='hello' /> */}
     <Test myProps={myVar} updater={childToParentUpdater}/>
-    <h2>
+    <h1>
       <ul>
       {movies.map(movie => <li>{movie.title}</li>)}
       </ul>
-    </h2>
+    </h1>
   </div>
   
 );
