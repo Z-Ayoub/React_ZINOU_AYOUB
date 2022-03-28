@@ -9,19 +9,19 @@ const App = () => {
 const [myVar, setMyVar] = useState('Hello World');
 const [movies, setMovies] = useState([]);
 
-
-function fetchMovieHandler() {
-  fetch('https://swapi.dev/api/films/').then(response=>{
-  console.log(response);
-  response.json();
- }).then(data=> {
-   console.log(data);
-   setMovies(data.results);
- })
- }
+function fetchMoviesHandler() {
+  fetch('https://swapi.dev/api/films/')
+  .then(response => {
+    console.log(response);
+    return response.json()
+  }).then(data => {
+    console.log(data);
+    setMovies(data.results);
+  })
+}
 
  useEffect(() => {
-   fetchMovieHandler();
+    fetchMoviesHandler();
  },[]);
 
 const onClickHandler = () => {
@@ -44,7 +44,11 @@ return (
     {myVar}
     {/* <Test myProps='hello' /> */}
     <Test myProps={myVar} updater={childToParentUpdater}/>
-    {[1,2,5,9]}
+    <h1>
+      <ul>
+      {movies.map(movie => <li>{movie.title}</li>)}
+      </ul>
+    </h1>
   </div>
   
 );
