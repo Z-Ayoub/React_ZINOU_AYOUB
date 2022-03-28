@@ -7,14 +7,19 @@ import Test from './components/Test'
 // Update VUE
 const App = () => {
 const [myVar, setMyVar] = useState('Hello World');
-const [movies, setMovies] = useState('');
+const [movies, setMovies] = useState([]);
+
 
 function fetchMovieHandler() {
   fetch('https://swapi.dev/api/films/').then(response=>{
   console.log(response);
   response.json();
+ }).then(data=> {
+   console.log(data);
+   setMovies(data.results);
  })
  }
+
  useEffect(() => {
    fetchMovieHandler();
  },[]);
@@ -44,5 +49,6 @@ return (
   
 );
 }
+
 
 export default App;
